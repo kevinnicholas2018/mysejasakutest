@@ -1,0 +1,14 @@
+<%= form_for @urlOriginal, action: "create" do |f|  %>
+	<div class="form-group">
+		<%= f.label :url_name %>
+		<%= f.text_field :url_name, class: "form-control", placeholder: "Put your destination URL here. ex: http://google.com"%>
+	</div>
+	<div class="form-group">
+		<%= f.label :url_custom %>
+		<%= f.text_field :url_custom, class: "form-control", placeholder: "Put your shorten ex: MyMusic"%>
+	</div>
+	<div class="form-group">
+		<%= f.submit :create, class: "form-control" %>
+	</div>
+<% end %>
+

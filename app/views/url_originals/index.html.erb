@@ -1,0 +1,41 @@
+<h1>LET'S SHORTEN YOUR LINK</h1>
+<p>Make Your Link Easier to Remember</p>
+
+<% if session[:danger] %>
+	<ul>
+		<% session[:danger].each do |key, value| %>
+			<% value.each do |message| %>
+				<li class="text-danger"><%= "#{key} #{message}" %></li>
+			<% end %>
+		<% end %>
+	</ul>
+<% end %>
+
+<form id="opsiGenUrl">
+  <label class="radio-inline">
+    <input type="radio" name="opsiUrl" checked="checked" value="default">Default
+  </label>
+  <label class="radio-inline">
+    <input type="radio" name="opsiUrl" value="custom">Custom
+  </label>
+</form>
+
+<section id="formForGenUrl">
+	<section id="form_create">
+		<%= render "create" %>
+	</section>
+	<section id="form_create_custom">
+		<%= render "create_custom" %>
+	</section>
+</section>
+
+<% if session[:success] %>
+	<h2>YOUR SHORTEN URL</h2>
+	<h4>
+		<%= link_to( 
+				"#{request.original_url}#{session[:success]}",  
+				session[:success], target: "_blank"
+			) 
+		%>	
+	</h4>
+<% end %> 
